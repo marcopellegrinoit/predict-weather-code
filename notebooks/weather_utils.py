@@ -38,7 +38,7 @@ def group_wmo_weather_codes(df):
     """
     
     # Group WMO codes into labels and new group code label
-    df_weather_mapping = pd.read_csv("../res/weather_code_mapping.csv")
+    df_weather_mapping = pd.read_csv("../resources/weather_code_mapping.csv")
 
     # Create a dictionary to map weather codes to labels and group codes
     weather_mapping = {}
