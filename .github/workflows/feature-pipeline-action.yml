@@ -1,0 +1,28 @@
+name: weather-code-feature-pipeline-action
+run-name: ${{ github.actor }} is running the feature pipeline to retrieve the weather info from yesterday 
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 23 * * *'
+jobs:
+  feature-pipeline-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13'
+          
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: execute python workflows from bash script
+        env: 
+          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+        run: ./scripts/run-feature-pipeline.sh
+
+      - run: echo "Job instructions finished. This job's status is ${{ job.status }}."
