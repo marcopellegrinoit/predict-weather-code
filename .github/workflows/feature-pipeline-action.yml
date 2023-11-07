@@ -12,18 +12,4 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.12'
-
-        # this Action should follow steps to set up Python build environment
-        - name: Install Python dependencies
-        uses: py-actions/py-dependency-install@v4
-        with:
-          update-pip: "yes"
-          update-setuptools: "false"
-          update-wheel: "false"
-          
-      - name: execute python workflows from bash script
-        env: 
-          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: ./scripts/run-feature-pipeline.sh
-
       - run: echo "Job instructions finished. This job's status is ${{ job.status }}."
