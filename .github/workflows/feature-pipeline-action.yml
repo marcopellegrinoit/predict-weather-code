@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Start job"
-
       - name: setup python
         uses: actions/setup-python@v2
         with:
