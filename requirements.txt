@@ -1,3 +1,6 @@
 pandas
 jupyter
 hopsworks
+openmeteo_requests
+requests_cache
+retry_requests
