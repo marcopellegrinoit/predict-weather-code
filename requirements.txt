@@ -4,3 +4,4 @@ hopsworks
 openmeteo_requests
 requests_cache
 retry_requests
+matplotlib
