@@ -10,7 +10,8 @@ Marco Pellegrino - November 2023
 2.  [Data Sources](#data-sources)
 3.  [Architecture](#architecture)
 4.  [Usage](#usage)
-5.  [License](#license)
+5.  [Built with](#built-with)
+6.  [License](#license)
 
 ## Description
 
