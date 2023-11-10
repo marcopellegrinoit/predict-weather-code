@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is running the feature pipeline to retrieve the we
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 23 * * *'
+    - cron: '30 00 * * *'
 jobs:
   feature-pipeline-job:
     runs-on: ubuntu-latest
