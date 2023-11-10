@@ -42,8 +42,8 @@ Retrieved features for each day:
 
 1.  Set up Howsworks account
 2.  Set up GitHub Actions with the configuration files:
-    1.  [`feature-pipeline-action.yml`](https://github.com/marcopellegrinoit/predict-weather-code/blob/main/.github/workflows/feature-pipeline-action.yml) to automate fetching new daily weather and inserting it into the Hopsworks feature store. 
-    2.  ?? to automate training of the ML regression model with updated historical weather data
+    1.  [`feature-pipeline-action.yml`](.github/workflows/feature-pipeline-action.yml) to automate fetching new daily weather and inserting it into the Hopsworks feature store. 
+    2.  [`training-pipeline-action.yml`](.github/workflows/training-pipeline-action.yml) to automate training of the ML regression model with updated historical weather data
 
 ## Built with
 
