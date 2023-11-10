@@ -44,6 +44,7 @@ Retrieved features for each day:
 2.  Set up GitHub Actions with the configuration files:
     1.  [`feature-pipeline-action.yml`](.github/workflows/feature-pipeline-action.yml) to automate fetching new daily weather and inserting it into the Hopsworks feature store. 
     2.  [`training-pipeline-action.yml`](.github/workflows/training-pipeline-action.yml) to automate training of the ML regression model with updated historical weather data
+3.  Run web app: `python -m streamlit run web_app.py`
 
 ## Built with
 
