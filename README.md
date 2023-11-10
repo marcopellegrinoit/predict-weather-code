@@ -1,6 +1,6 @@
 ![GitHub](https://img.shields.io/badge/license-GPL--3.0-blue)
 
-# Weather code prediction using Serverless ML Services
+# Weather Code Prediction using Serverless ML Services
 
 Marco Pellegrino - November 2023
 
@@ -21,7 +21,7 @@ The weather data, including both historical records and daily updates, is source
 
 Retrieved features for each day:
 
-*   Weathercode: weather conditions as a numeric code and categorized by [WMO mapping](resources/weather_code_mapping.csv)
+*   Weather code: weather conditions as a numeric code and categorized by [WMO mapping](resources/weather_code_mapping.csv)
 *   Minimum temperature reached during the day, in °C
 *   Sum of daily precipitation, in mm
 *   Maximum gusts speed on the day, in km/h
