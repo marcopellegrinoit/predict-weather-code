@@ -29,7 +29,7 @@ Retrieved features for each day:
 ## Architecture
 
 ### Backfill pipeline
-[Source code](notebooks/1_weather_code_backfill_pipeline.ipynb)
+[Source code](notebooks/1_weather_code_feature_backfill.ipynb)
 
 ### Feature Pipeline
 [Source code](notebooks/2_weather_code_feature_pipeline.ipynb)
