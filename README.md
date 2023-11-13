@@ -28,7 +28,7 @@ Retrieved features for each day:
 
 ## Architecture
 
-1. ### Backfill pipeline
+### 1. Backfill pipeline
 [Source code](notebooks/1_weather_code_feature_backfill.ipynb)
 
 2. ### Feature Pipeline
