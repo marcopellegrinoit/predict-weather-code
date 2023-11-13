@@ -6,4 +6,4 @@ requests_cache
 retry_requests
 matplotlib
 seaborn
-
+joblib
