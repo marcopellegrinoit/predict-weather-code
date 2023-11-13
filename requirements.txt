@@ -7,7 +7,6 @@ retry_requests
 matplotlib
 xgboost
 sklearn
-joblib
 time
 seaborn
 
