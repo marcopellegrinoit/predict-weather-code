@@ -6,7 +6,6 @@ requests_cache
 retry_requests
 matplotlib
 xgboost
-sklearn
 time
 seaborn
 
