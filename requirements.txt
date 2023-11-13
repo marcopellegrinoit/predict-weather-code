@@ -8,4 +8,4 @@ matplotlib
 seaborn
 joblib
 xgboost
-sklearn
+scikit-learn
