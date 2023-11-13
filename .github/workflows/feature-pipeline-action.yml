@@ -1,5 +1,5 @@
 name: weather-code-feature-pipeline-action
-run-name: ${{ github.actor }} is running the feature pipeline to retrieve the weather info from yesterday 
+run-name: ${{ github.actor }} is running the feature pipeline
 on:
   workflow_dispatch:
   schedule:
