@@ -28,15 +28,20 @@ Retrieved features for each day:
 
 ## Architecture
 
-### [Backfill pipeline](notebooks/1_weather_code_feature_backfill.ipynb)
+### Backfill pipeline
+[Source code](notebooks/1_weather_code_backfill_backfill.ipynb)
 
 ### Feature Pipeline
+[Source code](notebooks/2_weather_code_feature_backfill.ipynb)
 
 ### Training Pipeline
+[Source code](notebooks/3_weather_code_training_backfill.ipynb)
 
 ### Inference Pipeline
+[Source code](notebooks/4_weather_code_inference_backfill.ipynb)
 
 ### Web App
+[Source code](webapp.py)
 
 ## Usage
 
