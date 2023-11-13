@@ -1,4 +1,4 @@
-name: weather-code-feature-pipeline-action
+name: weather-code-training-pipeline-action
 run-name: ${{ github.actor }} is running the training pipeline 
 on:
   workflow_dispatch:
