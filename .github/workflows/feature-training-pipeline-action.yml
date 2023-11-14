@@ -1,11 +1,11 @@
-name: weather-code-feature-pipeline-action
-run-name: ${{ github.actor }} is running the feature pipeline
+name: weather-code-feature-training-pipeline-action
+run-name: ${{ github.actor }} is running the feature and training pipeline
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 00 * * *'
+    - cron: '00 07 * * *'
 jobs:
-  feature-pipeline-job:
+  feature-training-pipeline-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,4 +20,4 @@ jobs:
       - name: Execute Python pipeline from bash script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: ./scripts/run-feature-pipeline.sh
+        run: ./scripts/run-feature-training-pipeline.sh
