@@ -1,4 +1,17 @@
 import pandas as pd
+import openmeteo_requests
+import requests_cache
+from retry_requests import retry
+
+def get_openmeteo_connection():
+    """
+    Setup the Open-Meteo API client with cache and retry on error
+    """
+    
+    cache_session = requests_cache.CachedSession('.cache', expire_after = 3600)
+    retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
+    openmeteo = openmeteo_requests.Client(session = retry_session)
+    return(openmeteo)
 
 def process_weather_request(response):
     """
@@ -20,6 +33,36 @@ def process_weather_request(response):
         inclusive = "left"
     )}
     daily_data["weather_code_wmo"] = daily_weather_code
+    daily_data["temperature_min"] = daily_temperature_min
+    daily_data["precipitation_sum"] = daily_precipitation_sum
+    daily_data["wind_gusts_max"] = daily_wind_speed_10m_max
+
+    # transform table into Pandas dataframe
+    df = pd.DataFrame(data = daily_data)
+
+    # Format date column to include only the day
+    df['date'] = pd.to_datetime(df['date']).dt.date
+    
+    return(df)
+
+def process_forecast_request(response):
+    """
+    Process the Open-Meteo response, formatting the data and returnin the correspondant Pandas dataframe.
+    """
+    
+    # the order of variables needs to be the same as requested
+    daily = response.Daily()
+    daily_temperature_min = daily.Variables(0).ValuesAsNumpy()
+    daily_precipitation_sum = daily.Variables(1).ValuesAsNumpy()
+    daily_wind_speed_10m_max = daily.Variables(2).ValuesAsNumpy()
+
+    # arrange features into a Numpy array
+    daily_data = {"date": pd.date_range(
+        start = pd.to_datetime(daily.Time(), unit = "s"),
+        end = pd.to_datetime(daily.TimeEnd(), unit = "s"),
+        freq = pd.Timedelta(seconds = daily.Interval()),
+        inclusive = "left"
+    )}
     daily_data["temperature_min"] = daily_temperature_min
     daily_data["precipitation_sum"] = daily_precipitation_sum
     daily_data["wind_gusts_max"] = daily_wind_speed_10m_max
