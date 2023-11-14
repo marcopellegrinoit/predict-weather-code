@@ -1,5 +1,5 @@
-name: weather-code-feature-training-pipeline-action
-run-name: ${{ github.actor }} is running the feature and training pipeline
+name: weather-code-pipelines-action
+run-name: ${{ github.actor }} is running the feature, training, and inference pipeline
 on:
   workflow_dispatch:
   schedule:
@@ -17,7 +17,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Execute Python pipeline from bash script
+      - name: Execute Python pipelines from bash script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-        run: ./scripts/run-feature-training-pipeline.sh
+        run: ./scripts/run-pipelines.sh
