@@ -26,9 +26,10 @@ df_print.rename(columns = {'date':'Day',
                            'precipitation_sum':'Precipitation Sum [mm]',
                            'wind_gusts_max':'Wind Gusts Max [km/h]',
                            'weather_code_prediction':'Weather Code [1-13]',
-                           'weather_code_group':'Weather'
+                           'weather_code_group':'Info'
                           }, inplace = True)
 
+df_print = df_print.reindex(columns=['Day', 'Weather Code [1-13]', 'Info', 'Temperature Min [°C]', 'Precipitation Sum [mm]', 'Wind Gusts Max [km/h]'])
 
 st.title('Weather Code Forecast for Stockholm')
 
@@ -43,7 +44,21 @@ st.write(f"Author: {linkedin} - November 2023")
 
 st.write('Weather code forecast for the next 14 days, based on Open-Meteo predictions about rain, wind and temperature.')
 
-st.dataframe(df_print, hide_index=True,)
+def color_weather_code(val):
+    if val <= 2:
+        color = 'rgba(144, 238, 144, 0.7)'  # Light Green with alpha 0.7
+    elif val <= 6:
+        color = 'rgba(255, 255, 0, 0.7)'  # Yellow with alpha 0.7
+    elif val <= 9:
+        color = 'rgba(255, 165, 0, 0.7)'  # Orange with alpha 0.7
+    else:
+        color = 'rgba(255, 0, 0, 0.7)'  # Red with alpha 0.7
+
+    return f'background-color: {color}'
+
+st.dataframe(df_print.style.applymap(color_weather_code, subset=['Weather Code [1-13]']))
+
+#st.dataframe(df_print, hide_index=True,)
 
 # Define the base time-series chart.
 def get_chart(data):
@@ -55,11 +70,11 @@ def get_chart(data):
     )
 
     lines = (
-        alt.Chart(data, title="Evolution of Weather Code")
+        alt.Chart(data, title="Weather Code Trend")
         .mark_line()
         .encode(
             x=alt.X("date:T", title="Date", axis=alt.Axis(labelAngle=-60)),  # Adjust labelAngle as needed
-            y=alt.Y("weather_code_prediction:Q", title="Weather Code", scale=alt.Scale(domain=[1, 13]))
+            y=alt.Y("weather_code_prediction:Q", title="Weather Code [1-13]", scale=alt.Scale(domain=[1, 13]))
         )
     )
 
@@ -72,12 +87,12 @@ def get_chart(data):
         .mark_rule()
         .encode(
             x=alt.X("yearmonthdate(date):T", title="Date"),
-            y=alt.Y("weather_code_prediction:Q", title="Weather Code", scale=alt.Scale(domain=[1, 13])),
+            y=alt.Y("weather_code_prediction:Q", title="Weather Code [1-13]", scale=alt.Scale(domain=[1, 13])),
             opacity=alt.condition(hover, alt.value(0.3), alt.value(0)),
             tooltip=[
                 alt.Tooltip("date:T", title="Date"),
-                alt.Tooltip("weather_code_label", title="Weather code"),
-                alt.Tooltip("weather_code_prediction", title="Weather code level"),
+                alt.Tooltip("weather_code_label", title="Info"),
+                alt.Tooltip("weather_code_prediction", title="Weather Code"),
             ],
         )
         .add_selection(hover)
