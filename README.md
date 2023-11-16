@@ -4,6 +4,8 @@
 
 Marco Pellegrino - November 2023
 
+Click [here](https://huggingface.co/spaces/marcopellegrino/predict-weather-code) to access the webapp!
+
 ## Table of Contents
 
 1.  [Description](#description)
@@ -38,10 +40,10 @@ Retrieved features for each day:
 [Source code](notebooks/3_weather_code_training_pipeline.ipynb)
 
 ### 4. Inference Pipeline
-[Source code](notebooks/4_weather_code_inference_pipeline.ipynb)
+[Source code](notebooks/4_weather_code_batch_inference.ipynb)
 
 ### 5. Web App
-[Source code](webapp.py)
+[Source code](webapp/app.py)
 
 ## Usage
 
@@ -49,7 +51,7 @@ Retrieved features for each day:
 2.  Set up GitHub Actions with the configuration files:
     1.  [`feature-pipeline-action.yml`](.github/workflows/feature-pipeline-action.yml) to automate fetching new daily weather and inserting it into the Hopsworks feature store. 
     2.  [`training-pipeline-action.yml`](.github/workflows/training-pipeline-action.yml) to automate training of the ML regression model with updated historical weather data
-3.  Run web app: `python -m streamlit run web_app.py`
+3.  Run web app locally: `cd webapp ` and `python -m streamlit run app.py`
 
 ## Built with
 
