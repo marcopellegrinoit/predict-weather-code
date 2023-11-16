@@ -18,7 +18,7 @@ FEATURE_VIEW_V = 1 # version
 
 # MODEL
 MODEL_NAME = 'weather_code_xgboost_model'
-MODEL_METRIC = 'MSE'
+MODEL_METRIC = 'CV MSE mean'
 OPTIMIZE_DIRECTION = 'min'
 MODEL_PATH = 'weather_code_model'
 N_FOLD_CV = 10 # number of folds for the k-fold Cross-Validation
