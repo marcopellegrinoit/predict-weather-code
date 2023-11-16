@@ -1,11 +1,11 @@
                                                precision    recall  f1-score   support
 
-                                    Clear sky       0.00      0.00      0.00         2
-    Mainly clear, partly cloudy, and overcast       0.92      0.96      0.94        23
-Drizzle: Light, moderate, and dense intensity       0.82      0.82      0.82        11
+                                    Clear sky       0.00      0.00      0.00         1
+    Mainly clear, partly cloudy, and overcast       0.96      1.00      0.98        23
+Drizzle: Light, moderate, and dense intensity       0.92      0.92      0.92        12
   Freezing Drizzle: Light and dense intensity       0.00      0.00      0.00         0
-   Rain: Slight, moderate and heavy intensity       1.00      0.67      0.80         6
+   Rain: Slight, moderate and heavy intensity       1.00      0.75      0.86         8
 
-                                     accuracy                           0.83        42
-                                    macro avg       0.55      0.49      0.51        42
-                                 weighted avg       0.86      0.83      0.84        42
+                                     accuracy                           0.91        44
+                                    macro avg       0.57      0.53      0.55        44
+                                 weighted avg       0.93      0.91      0.92        44
