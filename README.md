@@ -1,4 +1,5 @@
 ![GitHub](https://img.shields.io/badge/license-GPL--3.0-blue)
+![pipeline workflow](https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml/badge.svg)
 
 # Weather Code Prediction using Serverless ML Services
 
