@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: '00 07 * * *'
 jobs:
-  feature-training-pipeline-job:
+  weather-code-pipelines-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
