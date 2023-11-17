@@ -20,9 +20,23 @@ This project uses Python and Hopsworks to forecast the weather code for Stockhol
 
 ## Description
 
+This project aims to forecast the daily weather code for Stockholm, utilizing key meteorological factors such as minimum temperature, precipitation sum, and maximum gust speed. The selection of these features is informed by an intuitive understanding of the factors that influence weather conditions.
+
+The project workflow involves the following steps in order:
+
+1. [Historical Data Collection](#1-backfill-pipeline): Historical weather data is initially retrieved.
+
+2. [Daily Data Collection](#2-feature-pipeline): Every day, the weather information of the previous day is collected.
+
+3. [Machine Learning Model Training](#3-training-pipeline): With the updated data, a new machine learning model is trained and stored in the collection of trained models.
+
+4. [Weather Code Forecast](#4-inference-pipeline): Minimum temperature, precipitation sum, and maximum gust speed for the next 14 days are collected and used as model features. Using the best-trained model, a weather code forecast is generated for the upcoming 2 weeks.
+
+This iterative process ensures that the predictive model adapts to the latest data, enhancing the accuracy of the weather forecasts over time.
+
 ## Data Sources
 
-The weather data, including both historical records and daily updates, is sourced from [Open-Meteo](https://open-meteo.com/en/docs).
+The weather data, including historical records, daily updates, and forecast features is sourced from [Open-Meteo](https://open-meteo.com/en/docs).
 
 Retrieved features for each day:
 
@@ -37,6 +51,7 @@ Retrieved features for each day:
 
 ### 1. Backfill pipeline
 [Source code](notebooks/1_weather_code_feature_backfill.ipynb)
+
 
 ### 2. Feature Pipeline
 [Source code](notebooks/2_weather_code_feature_pipeline.ipynb)
