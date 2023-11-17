@@ -2,7 +2,7 @@
 
 # Weather Code Prediction using Serverless ML Services
 
-Marco Pellegrino - November 2023
+Author: Marco Pellegrino - November 2023
 
 Click [here](https://huggingface.co/spaces/marcopellegrino/predict-weather-code) to access the webapp!
 
@@ -48,8 +48,8 @@ Retrieved features for each day:
 ## Usage
 
 1.  Set up [Howsworks account](https://app.hopsworks.ai/)
-2.  Set up GitHub Actions with the [`feature-pipeline-action.yml`](.github/workflows/pipelines-action.yml) configuration files. It automates the feature, training and pipelines one after the other.
-3.  Run web app locally: `cd webapp` and `python -m streamlit run app.py`
+2.  Set up GitHub Actions with the [`feature-pipeline-action.yml`](.github/workflows/pipelines-action.yml) configuration files. It automates the feature, training, and inference pipelines one after the other.
+3.  Run web app locally: `cd webapp` and `python -m streamlit run app.py`, or deploy it on [Hugging Face](https://huggingface.co/)
 
 ## Built with
 
