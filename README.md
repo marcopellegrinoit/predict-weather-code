@@ -1,12 +1,13 @@
 ![GitHub](https://img.shields.io/badge/license-GPL--3.0-blue) [![pipelines workflow](https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml/badge.svg)](https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml)
 
 
-
 # Weather Code Prediction using Serverless ML Services
 
 Author: Marco Pellegrino - November 2023
 
-Click [here](https://huggingface.co/spaces/marcopellegrino/predict-weather-code) to access the webapp!
+## Overview
+
+This project uses Python and Hopsworks to forecast the weather code for Stockholm based on historical weather data. The predictive model, trained using machine learning techniques, provides public access to its forecasts through a user-friendly [web application](https://huggingface.co/spaces/marcopellegrino/predict-weather-code).
 
 ## Table of Contents
 
