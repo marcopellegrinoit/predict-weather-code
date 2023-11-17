@@ -21,6 +21,7 @@ This project uses Python and Hopsworks serverless services to forecast the weath
 ## Description
 
 This project aims to forecast the daily weather code for Stockholm, utilizing key meteorological factors such as minimum temperature, precipitation sum, and maximum gust speed. The latter feature selection is informed by an intuitive understanding of the factors that influence weather conditions.
+Weather codes are provided by Open-Meteo in the WMO standard (see end page of [Open-Meteo API](https://open-meteo.com/en/docs). The latter format involves large numbers with breaks. For a more suitable use, for both modeling and end-user, new weather codes from 1 to 13 are defined in [`weather_code_mapping.csv`](resources/weather_code_mapping.csv).
 
 The project workflow involves the following steps in order:
 
