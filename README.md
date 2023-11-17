@@ -20,7 +20,7 @@ This project uses Python and Hopsworks to forecast the weather code for Stockhol
 
 ## Description
 
-This project aims to forecast the daily weather code for Stockholm, utilizing key meteorological factors such as minimum temperature, precipitation sum, and maximum gust speed. The selection of these features is informed by an intuitive understanding of the factors that influence weather conditions.
+This project aims to forecast the daily weather code for Stockholm, utilizing key meteorological factors such as minimum temperature, precipitation sum, and maximum gust speed. The latter feature selection is informed by an intuitive understanding of the factors that influence weather conditions.
 
 The project workflow involves the following steps in order:
 
