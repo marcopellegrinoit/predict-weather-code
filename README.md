@@ -86,7 +86,7 @@ The web application establishes a connection to the Hopsworks cluster, retrievin
 
 ## Usage
 
-1. Clone the repository: `git clone https://github.com/marcopellegrinoit/predict-weather-code.git` and `cd stockholm-weather-prediction`
+1. Clone the repository: `git clone https://github.com/marcopellegrinoit/predict-weather-code.git` and `cd predict-weather-code`
 2. Install the required dependencies: `pip install -r requirements.txt`
 3. Set up [Howsworks account](https://app.hopsworks.ai/)
 4. Set up GitHub Actions with the [`feature-pipeline-action.yml`](.github/workflows/pipelines-action.yml) configuration files. It automates the feature, training, and inference pipelines one after the other at the specified time.
