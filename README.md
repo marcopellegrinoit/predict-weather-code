@@ -26,7 +26,7 @@ The project workflow involves the following steps in order:
 
 1. [Historical Data Collection](#1-backfill-pipeline): Historical weather data of the past 3 months is initially retrieved.
 
-2. [Daily Data Collection](#2-feature-pipeline): Every day, the weather information of the previous day is collected.
+2. [Daily Data Collection](#2-feature-pipeline): Every day, weather information of the previous day is collected.
 
 3. [Machine Learning Model Training](#3-training-pipeline): With the updated data, a new machine learning model is trained and stored in the collection of trained models.
 
@@ -36,7 +36,7 @@ This iterative process ensures that the predictive model adapts to the latest da
 
 ## Data Sources
 
-The weather data, including historical records, daily updates, and forecast features is sourced from [Open-Meteo](https://open-meteo.com/en/docs).
+The weather data, including historical records, daily updates, and forecast features is freely sourced from [Open-Meteo](https://open-meteo.com/en/docs).
 
 Retrieved features for each day:
 
@@ -48,6 +48,9 @@ Retrieved features for each day:
 ## Architecture
 
 ![Achitecture diagram](diagram.png)
+
+### Settings
+All parameters and settings related to Hopsworks, the ML model, and Open-Meteo are easily modifiable in the  [configuration file `config.py`](config.py)
 
 ### 1. Backfill pipeline
 [Source code](notebooks/1_weather_code_feature_backfill.ipynb)
