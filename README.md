@@ -75,10 +75,10 @@ The pipeline is run on batch processing using GitHub Action, after the feature p
 ### 4. Inference Pipeline
 [Source code](notebooks/4_weather_code_batch_inference.ipynb)
 The pipeline is run on batch processing using GitHub Action, after the training pipeline, because new forecasts are computed every day once the new data is collected and the model trained.
-1. The best-trained ML model is retrieved from the Hopsworks Model Registry. As a modeling choice, it is also possible to use the latest model even if it performs worse than others.
-2. Daily minimum temperature, sum of daily precipitation, and maximum gusts speed are collected for the next 14 days from [Open-Meteo](https://open-meteo.com/en/docs).
-3. the ML model is used to predict the weather code for the next 2 weeks.
-4. Forecasts are stored in a HopsworksFeature Group. Predictions are also stored in the Hopsworks cluster, overriding the forecasts of the previous day, by providing direct and fast access for the web application.
+1. The best-trained ML model is fetched from the Hopsworks Model Registry. Additionally, as a modeling choice, the option to use the latest model is available, even if its performance is lower than older versions.
+3. Daily minimum temperature, sum of daily precipitation, and maximum gusts speed are collected for the next 14 days from [Open-Meteo](https://open-meteo.com/en/docs).
+4. the ML model is used to predict the weather code for the next 2 weeks.
+5. Forecasts are stored in a HopsworksFeature Group. Predictions are also stored in the Hopsworks cluster, overriding the forecasts of the previous day, by providing direct and fast access for the web application.
 
 ### 5. Web App
 [Source code](webapp/app.py)
