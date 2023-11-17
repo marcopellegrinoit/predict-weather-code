@@ -24,7 +24,7 @@ This project aims to forecast the daily weather code for Stockholm, utilizing ke
 
 The project workflow involves the following steps in order:
 
-1. [Historical Data Collection](#1-backfill-pipeline): Historical weather data is initially retrieved.
+1. [Historical Data Collection](#1-backfill-pipeline): Historical weather data of the past 3 months is initially retrieved.
 
 2. [Daily Data Collection](#2-feature-pipeline): Every day, the weather information of the previous day is collected.
 
