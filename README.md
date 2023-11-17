@@ -52,9 +52,10 @@ Retrieved features for each day:
 
 ## Usage
 
-1.  Set up [Howsworks account](https://app.hopsworks.ai/)
-2.  Set up GitHub Actions with the [`feature-pipeline-action.yml`](.github/workflows/pipelines-action.yml) configuration files. It automates the feature, training, and inference pipelines one after the other.
-3.  Run web app locally: `cd webapp` and `python -m streamlit run app.py`, or deploy it on [Hugging Face](https://huggingface.co/)
+1.  Install the required dependencies: `pip install -r requirements.txt`
+2.  Set up [Howsworks account](https://app.hopsworks.ai/)
+3.  Set up GitHub Actions with the [`feature-pipeline-action.yml`](.github/workflows/pipelines-action.yml) configuration files. It automates the feature, training, and inference pipelines one after the other.
+4.  Run web app locally: `cd webapp` and `python -m streamlit run app.py`, or deploy it on [Hugging Face](https://huggingface.co/)
 
 ## Built with
 
