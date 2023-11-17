@@ -86,10 +86,11 @@ The web application establishes a connection to the Hopsworks cluster, retrievin
 
 ## Usage
 
-1.  Install the required dependencies: `pip install -r requirements.txt`
-2.  Set up [Howsworks account](https://app.hopsworks.ai/)
-3.  Set up GitHub Actions with the [`feature-pipeline-action.yml`](.github/workflows/pipelines-action.yml) configuration files. It automates the feature, training, and inference pipelines one after the other.
-4.  Run web app locally: `cd webapp` and `python -m streamlit run app.py`, or deploy it on [Hugging Face](https://huggingface.co/)
+1. Clone the repository: `git clone https://github.com/marcopellegrinoit/predict-weather-code.git` and `cd stockholm-weather-prediction`
+2. Install the required dependencies: `pip install -r requirements.txt`
+3. Set up [Howsworks account](https://app.hopsworks.ai/)
+4. Set up GitHub Actions with the [`feature-pipeline-action.yml`](.github/workflows/pipelines-action.yml) configuration files. It automates the feature, training, and inference pipelines one after the other at the specified time.
+5. Run web app locally: `cd webapp` and `python -m streamlit run app.py`, or deploy it on [Hugging Face](https://huggingface.co/)
 
 ## Built with
 
