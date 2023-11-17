@@ -1,6 +1,5 @@
-![GitHub](https://img.shields.io/badge/license-GPL--3.0-blue)
-![pipeline workflow](https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml/badge.svg)
-[![pipeline workflow(https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml/badge.svg)](https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml)
+![GitHub](https://img.shields.io/badge/license-GPL--3.0-blue) [![pipelines workflow](https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml/badge.svg)](https://github.com/marcopellegrinoit/predict-weather-code/actions/workflows/pipelines-action.yml)
+
 
 
 # Weather Code Prediction using Serverless ML Services
