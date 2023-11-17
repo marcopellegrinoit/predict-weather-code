@@ -7,7 +7,7 @@ Author: Marco Pellegrino - November 2023
 
 ## Overview
 
-This project uses Python and Hopsworks to forecast the weather code for Stockholm based on historical weather data. The predictive model, trained using machine learning techniques, provides public access to its forecasts through a user-friendly [web application](https://huggingface.co/spaces/marcopellegrino/predict-weather-code).
+This project uses Python and Hopsworks serverless services to forecast the weather code for Stockholm based on historical weather data. The predictive model, trained using machine learning techniques, provides public access to its forecasts through a user-friendly [web application](https://huggingface.co/spaces/marcopellegrino/predict-weather-code).
 
 ## Table of Contents
 
