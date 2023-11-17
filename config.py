@@ -1,7 +1,7 @@
 # HOPSWORKS
 
 # 1) Feature Group about historical weather data
-FG_HISTORG_NAME = 'weather_historical_fg'
+FG_HISTORY_NAME = 'weather_historical_fg'
 FG_HISTORY_V = 1 # version
 FG_HISTORY_PK = ["date"] # primary key
 FG_HISTORY_DESC = 'Daily Weather Information' # description
