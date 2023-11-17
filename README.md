@@ -68,7 +68,7 @@ Note: The chosen runtime aligns with the release pattern of [Open-Meteo](https:/
 The pipeline is run on batch processing using GitHub Action, after the feature pipeline, so that a new ML model is trained using the newest data for a more accurate forecast. However, the pipeline can also be run on-demand for experimentation.
 1. A Hopsworks Feature View is created from the Hopsworks Feature Group that contains the collected weather information. Feature Views have the capability of joining multiple Feature Groups, however here there is only one Feature Group. Multiple Feature Groups can be added later to incorporate more data sources.
 2. A Hopsworks Fraining Dataset from the Feature View is created and retrieved.
-3. An XGBoost regression model is built. Its hyperparameters are tuned with a random search and optimized with k-fold cross-validation
+3. An XGBoost regression model is built, and its hyperparameters are tuned with a random search optimized with k-fold cross-validation.
 4. The regression model is evaluated with R2, MSE, RMSE and weighted-average F1 score F1-score metrics on k-fold cross-validation. The weather code label is the numeric output of a regression model but is also classified into the closest integer weather code class. In addition, a random 80% training and 20% test set split are computed to perform an in-depth F1 score analysis. Model residuals, feature importance, MSE on full training and test for overfitting identification, and learning curve are also computed for a complete model evaluation.
 5. The model is inserted in the Hopsworks Model Registry.
 
