@@ -50,7 +50,9 @@ st.divider()
 
 st.write('Welcome to the Stockholm Weather Code Forecast! This web application provides a detailed weather code forecast for the next 14 days, using machine-learning predictions based on rain, wind, and temperature from [Open-Meteo](https://open-meteo.com/).')
 
-st.write('Last forecast update: ', df['prediction_date'][0])
+last_update_date = pd.to_datetime(df['prediction_date'].iloc[0])
+last_update_date = format_date(last_update_date)
+st.write('Last forecast update: ', last_update_date)
 
 # return the colored row based on the weather code
 def color_weather_code(row):
