@@ -14,13 +14,12 @@ dataset_api.download('Resources/weather_forecast/forecast.csv', overwrite=True)
 # Read CSV file without setting any column as the index
 df = pd.read_csv('forecast.csv', index_col=None)
 
+# Read values as integer to avoid decimals
 df["temperature_min"] = df["temperature_min"].astype(int)
 df["precipitation_sum"] = df["precipitation_sum"].astype(int)
 df["wind_gusts_max"] = df["wind_gusts_max"].astype(int)
 
-# Drop the index column if it exists
-df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
-
+# Rename columns
 df_print = df[['forecast_date', 'temperature_min', 'precipitation_sum', 'wind_gusts_max', 'weather_code', 'weather_code_desc_short']]
 df_print.temperature_min = df_print.temperature_min.round()
 df_print.precipitation_sum = df_print.precipitation_sum.round()
@@ -29,12 +28,20 @@ df_print.rename(columns = {'forecast_date':'Day',
                            'temperature_min':'Temperature Min [°C]',
                            'precipitation_sum':'Precipitation Sum [mm]',
                            'wind_gusts_max':'Wind Gusts Max [km/h]',
-                           'weather_code':'Weather Code [1-13]',
+                           'weather_code':'Weather Code',
                            'weather_code_desc_short':'Info'
                           }, inplace = True)
 
-df_print = df_print.reindex(columns=['Day', 'Weather Code [1-13]', 'Info', 'Temperature Min [°C]', 'Precipitation Sum [mm]', 'Wind Gusts Max [km/h]'])
+# Reorder columns
+df_print = df_print.reindex(columns=['Day', 'Weather Code', 'Info', 'Temperature Min [°C]', 'Precipitation Sum [mm]', 'Wind Gusts Max [km/h]'])
 
+# Format date
+df_print['Day'] = pd.to_datetime(df_print['Day'])
+def format_date(date):
+    return date.strftime('%b %d, %Y')
+df_print['Day'] = df_print['Day'].apply(format_date)
+
+# Body of the page
 st.title('Stockholm Weather Code Forecast')
 
 st.write(f"Author: [Marco Pellegrino](https://www.linkedin.com/in/marco-pellegrino-it/) - November 2023. Click here for [project explanation](https://github.com/marcopellegrinoit/predict-weather-code).")
@@ -47,7 +54,7 @@ st.write('Last forecast update: ', df['prediction_date'][0])
 
 # return the colored row based on the weather code
 def color_weather_code(row):
-    val = row['Weather Code [1-13]']
+    val = row['Weather Code']
     if val <= 2:
         background_color = 'rgba(144, 238, 144, 0.7)'  # Light Green with alpha 0.7
         text_color = 'black'
@@ -65,7 +72,7 @@ def color_weather_code(row):
         f'background-color: {background_color}; color: {text_color}'
     ] * len(row)
 
-# Print forecast
+# Print forecast table
 styled_df = df_print.style.apply(color_weather_code, axis=1)
 st.dataframe(styled_df, hide_index=True)
 
