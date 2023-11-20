@@ -75,6 +75,12 @@ def process_forecast_request(response):
 
     # Rename date column to avoid confusing with the other prediction date feature
     df = df.rename(columns={'date': 'forecast_date'})
+
+    # Sort the DataFrame by a date
+    df = df.sort_values(by='forecast_date')
+
+    # Drop the first row because it is about yesterday (Open-Meteo first next day is still yesterday)
+    df = df.iloc[1:]
     
     return df
 
