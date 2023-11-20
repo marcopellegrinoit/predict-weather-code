@@ -9,7 +9,7 @@ FG_HISTORY_DESC = 'Daily Weather Information' # description
 # 2) Feature Group about forecast weather data
 FG_FORECAST_NAME = 'weather_forecast_fg'
 FG_FORECAST_V = 1 # version
-FG_FORECAST_PK = ["date"] # primary key
+FG_FORECAST_PK = ['forecast_date', 'prediction_date'] # primary key
 FG_FORECAST_DESC = 'Daily Weather Forecast' # description
 
 # 3) Feature View for historical weather data

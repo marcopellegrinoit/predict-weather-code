@@ -1,0 +1,15 @@
+,forecast_date,temperature_min,precipitation_sum,wind_gusts_max,prediction_date,month,weather_code,weather_code_desc,weather_code_desc_short
+0,2023-11-19,-0.8325,0.1,15.119999,2023-11-20,11,4,"Drizzle: Light, moderate, and dense intensity",Drizzle
+1,2023-11-20,-2.5325,0.0,28.8,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+2,2023-11-21,-4.4824996,5.2999997,69.84,2023-11-20,11,5,Freezing Drizzle: Light and dense intensity,Drizzle
+3,2023-11-22,1.5195,0.70000005,33.12,2023-11-20,11,4,"Drizzle: Light, moderate, and dense intensity",Drizzle
+4,2023-11-23,-2.4805,0.2,45.0,2023-11-20,11,4,"Drizzle: Light, moderate, and dense intensity",Drizzle
+5,2023-11-24,-4.2305,0.0,20.519999,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+6,2023-11-25,-4.8455,0.0,29.519999,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+7,2023-11-26,-5.6415,0.0,30.239998,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+8,2023-11-27,-6.7415004,0.0,25.919998,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+9,2023-11-28,-7.3415003,0.0,19.44,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+10,2023-11-29,-5.9915004,0.0,27.72,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+11,2023-11-30,-6.9415,0.0,40.32,2023-11-20,11,2,"Mainly clear, partly cloudy, and overcast",Clear
+12,2023-12-01,-8.3914995,0.0,32.039997,2023-11-20,12,2,"Mainly clear, partly cloudy, and overcast",Clear
+13,2023-12-02,-9.341499,0.3,36.36,2023-11-20,12,4,"Drizzle: Light, moderate, and dense intensity",Drizzle

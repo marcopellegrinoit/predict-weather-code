@@ -72,6 +72,9 @@ def process_forecast_request(response):
 
     # Format date column to include only the day
     df['date'] = pd.to_datetime(df['date']).dt.date
+
+    # Rename date column to avoid confusing with the other prediction date feature
+    df = df.rename(columns={'date': 'forecast_date'})
     
     return df
 
