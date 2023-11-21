@@ -39,6 +39,8 @@ This iterative process ensures that the predictive model adapts to the latest da
 
 The weather data, including historical records, daily updates, and forecast features is freely sourced from [Open-Meteo](https://open-meteo.com/en/docs).
 
+https://www.hopsworks.ai/post/mlops-to-ml-systems-with-fti-pipelines
+
 Retrieved features for each day:
 
 *   Weather code: weather conditions as a numeric code and categorized by [WMO mapping](resources/weather_code_mapping.csv)
@@ -50,8 +52,7 @@ Retrieved features for each day:
 
 ![Achitecture diagram](diagram.png)
 
-### Settings
-All parameters and settings related to Hopsworks, the ML model, and [Open-Meteo](https://open-meteo.com/en/docs) are easily modifiable in the  [configuration file `config.py`](config.py)
+FTI architecture (Feature/Training/Inference),  [MLOps state-of-the-art](https://www.hopsworks.ai/post/mlops-to-ml-systems-with-fti-pipelines), is adopted:
 
 ### 1. Backfill pipeline
 [Source code](notebooks/1_weather_code_feature_backfill.ipynb).
@@ -84,6 +85,9 @@ The pipeline is run on batch processing using GitHub Action, after the training 
 ### 5. Web Appplication
 [Source code](webapp/app.py).
 The web application establishes a connection to the Hopsworks cluster, retrieving the latest forecast. This data is then visualized in a table, color-coded based on weather codes, and presented in a trend plot.
+
+### Settings
+All parameters and settings related to Hopsworks, the ML model, and [Open-Meteo](https://open-meteo.com/en/docs) are easily modifiable in the  [configuration file `config.py`](config.py).
 
 ## Usage
 
