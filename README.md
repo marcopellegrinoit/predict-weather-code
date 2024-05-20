@@ -7,7 +7,7 @@ Author: Marco Pellegrino - November 2023
 
 ## Overview
 
-This project uses Python and Hopsworks serverless services to forecast the weather code for Stockholm based on historical weather data. The machine learning predictive model generates 14-day forecasts, which are publicly accessible through a user-friendly [web application](https://huggingface.co/spaces/marcopellegrino/predict-weather-code).
+This project uses Python and Hopsworks serverless services to forecast the weather code for Stockholm based on historical weather data. The machine learning predictive model generates 14-day forecasts, which are publicly accessible through a user-friendly  web application.
 
 ## Table of Contents
 
@@ -55,29 +55,30 @@ Retrieved features for each day:
 FTI architecture (Feature/Training/Inference),  [MLOps state-of-the-art](https://www.hopsworks.ai/post/mlops-to-ml-systems-with-fti-pipelines), is adopted:
 
 ### 1. Backfill pipeline
-[Source code](notebooks/1_weather_code_feature_backfill.ipynb).
+[Source code](notebooks/1_feature_backfill.ipynb).
 The pipeline is run on-demand, to create and populate the Hopsworks Feature Group with historical weather information.
 Daily weather code, minimum temperature, sum of daily precipitation, and maximum gusts speed are collected for the past 3 months from [Open-Meteo](https://open-meteo.com/en/docs).
 
 ### 2. Feature Pipeline
-[Source code](notebooks/2_weather_code_feature_pipeline.ipynb).
+[Source code](notebooks/2_feature_pipeline.ipynb).
 The pipeline is run on batch processing, every day at 07:00 UTC using GitHub Actions, to collect the previous day weather and insert it into the Hopsworks Feature Group.
 Daily weather code, minimum temperature, sum of daily precipitation, and maximum gusts speed are collected for the previous day from [Open-Meteo](https://open-meteo.com/en/docs).
 Note: The chosen runtime aligns with the release pattern of [Open-Meteo](https://open-meteo.com/en/docs), which provides information for the previous day within the first 6 hours of the day.
 
 ### 3. Training Pipeline
-[Source code](notebooks/3_weather_code_training_pipeline.ipynb).
+[Source code](notebooks/3_training_pipeline.ipynb).
 The pipeline is run on batch processing using GitHub Action, after the feature pipeline, so that a new ML model is trained using the newest data for a more accurate forecast. However, the pipeline can also be run on-demand for experimentation.
 1. A Hopsworks Feature View is created from the Hopsworks Feature Group that contains the collected weather information. Feature Views have the capability of joining multiple Feature Groups, however here there is only one Feature Group. Multiple Feature Groups can be added later to incorporate more data sources.
-2. A Hopsworks Fraining Dataset from the Feature View is created and retrieved.
+2. A Training and Test set from the Feature View is created and retrieved.
 3. An XGBoost regression model is built, and its hyperparameters are tuned with a random search optimized with k-fold cross-validation.
-4. The regression model is evaluated with R2, MSE, RMSE and weighted-average F1 score F1-score metrics on k-fold cross-validation. The weather code label is the numeric output of a regression model but is also classified into the closest integer weather code class. In addition, a random 80% training and 20% test set split is computed to perform an in-depth F1 score analysis. Model residuals, feature importance, MSE on full training and test sets for overfitting identification, and learning curve are also computed for a complete model evaluation.
-5. The model is inserted in the Hopsworks Model Registry.
+4. Tuned model is trained on the training set
+5. The Trained model is evaluated with R2, MSE, RMSE and weighted-average F1 score F1-score metrics on the unseen test set. The weather code label is the numeric output of a regression model but is also classified into the closest integer weather code class. In addition, model residuals and feature importance also computed for a complete model evaluation.
+6. The model is pushed to the Hopsworks Model Registry.
 
 ### 4. Inference Pipeline
-[Source code](notebooks/4_weather_code_batch_inference.ipynb).
+[Source code](notebooks/4_batch_inference.ipynb).
 The pipeline is run on batch processing using GitHub Action, after the training pipeline, because new forecasts are computed every day once the new data is collected and the model trained.
-1. The best-trained ML model is fetched from the Hopsworks Model Registry. Additionally, as a modeling choice, the option to use the latest model is available, even if its performance is lower than older versions.
+1. The best-performing ML model is fetched from the Hopsworks Model Registry. Additionally, as a modeling choice, the option to use the latest model is available, even if its performance is lower than older versions.
 3. Daily minimum temperature, sum of daily precipitation, and maximum gusts speed are collected for the next 14 days from [Open-Meteo](https://open-meteo.com/en/docs).
 4. The ML model is used to predict the weather code for the next 2 weeks.
 5. Forecasts are stored in a HopsworksFeature Group. Predictions are also stored in the Hopsworks cluster, overriding the forecasts of the previous day, by providing direct and fast access for the web application.
